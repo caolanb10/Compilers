@@ -39,6 +39,12 @@ Expr = SimExpr [RelOp SimExpr [ConditionalExpression] ]
 
 ConditionalExpression = '?' Expr ':' Expr ';'
 
+Switch = "switch" '(' Ident ')' '{' Case {Case} Default '}'
+
+Case = "case" number ':' Stat {Stat} ["continue;"]
+
+Default = "default" ':' Stat {Stat}
+
 ProcDecl = "void" Ident '()' '{'    //only void functions?
                 { ConstDecl }
                 { VarDecl }         //optiona: Any amount of variable declerations
